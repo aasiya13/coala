@@ -128,7 +128,7 @@ def print_section_beginning(console_printer, section):
     """
     console_printer.print('Executing section {name}...'.format(
         name=section.name))
-
+'''
 
 def nothing_done(log_printer):
     """
@@ -138,7 +138,7 @@ def nothing_done(log_printer):
     :param log_printer: A LogPrinter object.
     """
     log_printer.warn('No existent section was targeted or enabled. '
-                     'Nothing to do.')
+                     'Nothing to do.') '''
 
 
 def acquire_actions_and_apply(console_printer,
