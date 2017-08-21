@@ -13,6 +13,7 @@ from coalib.processes.BearRunning import run
 from coalib.processes.CONTROL_ELEMENT import CONTROL_ELEMENT
 from coalib.processes.LogPrinterThread import LogPrinterThread
 from coalib.results.Result import Result
+from coalib.results.result_actions.DoNothingAction import DoNothingAction
 from coalib.results.result_actions.ApplyPatchAction import ApplyPatchAction
 from coalib.results.result_actions.IgnoreResultAction import IgnoreResultAction
 from coalib.results.result_actions.ChainPatchAction import ChainPatchAction
@@ -27,7 +28,8 @@ from coalib.settings.Setting import glob_list
 from coalib.parsing.Globbing import fnmatch
 
 
-ACTIONS = [ApplyPatchAction,
+ACTIONS = [DoNothingAction,
+           ApplyPatchAction,
            PrintDebugMessageAction,
            ShowPatchAction,
            IgnoreResultAction,
@@ -369,11 +371,11 @@ def instantiate_processes(section,
     :param cache:            An instance of ``misc.Caching.FileCache`` to use as
                              a file cache buffer.
     :param log_printer:      The log printer to warn to.
-    :param use_raw_files:    Allow the usage of raw files (non text files)
     :param console_printer:  Object to print messages on the console.
     :param debug:            Bypass multiprocessing and activate debug mode
                              for bears, not catching any exceptions on running
                              them.
+    :param use_raw_files:    Allow the usage of raw files (non text files)
     :return:                 A tuple containing a list of processes,
                              and the arguments passed to each process which are
                              the same for each object.
